@@ -1,0 +1,84 @@
+1. Remove duplicates in a query response
+      Pseudo code:
+      User.name.unique
+
+      SQL:
+      SELECT DISTINCT name
+      FROM user;
+
+2. Filter records using inequalities, pattern matching, ranges and Boolean logic
+      Pseudo code:
+      Post.all.includes('post')
+
+      SQL:
+      SELECT *
+      FROM post
+      WHERE title
+      LIKE '%post%';
+
+3. Sort records in a particular order
+      Pseudo code:
+      User.email.sort_by_desc
+
+      SQL:
+      SELECT email
+      FROM user
+      ORDER BY email DESC;
+
+4. Limit the number of records returned
+      Pseudo code:
+      User.name.sort_by_asc(2)
+
+      SQL:
+      SELECT name
+      FROM user
+      ORDER BY name ASC
+      LIMIT 2;
+
+5. Group records into sections
+      Pseudo code:
+      Comment.all.group_by(user_id)
+
+      SQL:
+      SELECT user_id, count(user_id)
+      FROM comment
+      GROUP BY user_id;
+
+6. Preform calculations with an aggregate function
+      Pseudo code:
+      Post.all.count
+
+      SQL:
+      SELECT COUNT(*)
+      FROM post;
+
+7. Join tables using cross join, inner join and outer join
+      Cross Join:
+
+      Pseudo code:
+      User.all.name.cross_join(Post.all.title)
+
+      SQL:
+      SELECT user.name, post.title
+      FROM user
+      CROSS JOIN post;
+
+      Inner Join:
+      Pseudo code:
+      User.all.join(Post.user_id)
+
+      SQL:
+      SELECT *
+      FROM user
+      INNER JOIN post
+      ON user.id = post.user_id;
+
+      Outer Join:
+      Pseudo code:
+      User.all.outer_join(comment.user_id)
+
+      SQL:
+      SELECT *
+      FROM user
+      OUTER JOIN comment
+      ON user.id = comment.user_id;
